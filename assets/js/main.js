@@ -7,11 +7,18 @@ let audi = document.querySelector('.marcas__audi')
 let chevrolet = document.querySelector('.marcas__chevrolet') 
 let marcaAuto=''
 let marca=''
+let resultado = document.querySelector('.resultado')
 
 ford.addEventListener('click', () =>{
     console.log("Ingresaste en Ford")
     marcaAuto= 'ford';
-    filtrarAuto()
+    
+    for (let auto of autos){
+        resultado.innerHTML +=  `
+        <div class = "card" style="width:20px;">
+            <img src="${auto.img}" width=100px>
+        </div>`
+    }
 
 
 })
