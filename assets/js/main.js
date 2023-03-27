@@ -5,23 +5,74 @@
 let ford = document.querySelector('.marcas__ford')
 let audi = document.querySelector('.marcas__audi')
 let chevrolet = document.querySelector('.marcas__chevrolet') 
-let marcaAuto=''
-let marca=''
 let resultado = document.querySelector('.resultado')
 
 ford.addEventListener('click', () =>{
     console.log("Ingresaste en Ford")
-    marcaAuto= 'ford';
+    let marca= 'ford';
     
+
+    const busqueda={
+        marca: marca,
+        modelo:'',
+        img: '',
+    } 
+    
+    console.log(autos)
+    
+    filtrarAuto()
+    
+    function mostrarAutos(autos){
+        autos.forEach(auto => {
+            console.log(auto)
+            
+        });
+    }
+    
+    function filtrarMarca(auto){
+        if(busqueda.marca){
+            return auto.marca === busqueda.marca
+        }
+        return auto
+    }
+    
+    function filtrarModelo(auto){
+        if (busqueda.modelo){
+            return auto.modelo === busqueda.modelo
+        }
+        return auto
+    }
+
+    function filtrarImg(auto){
+        if(busqueda.img){
+            return auto.img === busqueda.img
+        }
+        return auto
+    }
+    
+    function filtrarAuto(){
+        let resultado = autos.filter(filtrarMarca).filter(filtrarModelo).filter(filtrarImg);
+        if(resultado.length){
+            mostrarAutos(resultado)
+        }
+    
+    }
+    
+    
+    console.log(busqueda)
+
     for (let auto of autos){
+
+        
         resultado.innerHTML +=  `
         <div class = "card" style="width:20px;">
             <img src="${auto.img}" width=100px>
         </div>`
     }
 
-
 })
+
+
 audi.addEventListener('click', () =>{
     console.log("Ingresaste en Audi")
 
@@ -31,39 +82,6 @@ chevrolet.addEventListener('click', () =>{
 
 })
 
-const busqueda={
-    marca:marcaAuto,
-    modelo:'',
-} 
-
-function mostrarAutos(autos){
-    autos.forEach(auto => {
-        console.log(auto)
-        
-    });
-}
-
-function filtrarMarca(auto){
-    if(busqueda.marca){
-        return auto.marca === busqueda.marca
-    }
-    return auto
-}
-
-function filtrarModelo(auto){
-    if (busqueda.modelo){
-        return auto.modelo === busqueda.modelo
-    }
-    return auto
-}
-
-function filtrarAuto(){
-    let resultado = autos.filter(filtrarMarca).filter(filtrarModelo)
-    if(resultado.length){
-        mostrarAutos(resultado)
-    }
-
-}
 
 
 // document.write(mostrarAutos(autos))
