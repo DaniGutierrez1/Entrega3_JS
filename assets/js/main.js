@@ -6,31 +6,43 @@ let ford = document.querySelector('.marcas__ford')
 let audi = document.querySelector('.marcas__audi')
 let chevrolet = document.querySelector('.marcas__chevrolet') 
 let resultado = document.querySelector('.resultado')
-const busqueda={}
+
+
 
 ford.addEventListener('click', () =>{
     console.log("Ingresaste en Ford")
-    let marca= 'ford';
+    let marca = 'ford'
 
-    const busqueda={
-        marca: marca,
-        modelo:'',
-        img: '',
-    } 
-    filtrarAuto()
 
-    console.log(busqueda)
+    
+    filtrarAuto(marca)
+    
 
-    for (let auto of autos){
+    for (let busqueda of autos){
+        console.log(busqueda)
         resultado.innerHTML +=  `
         <div class = "card" style="width:20px;">
-            <img src="${auto.img}" width=100px>
+            <img src="${busqueda.img}" width=100px>
         </div>`
 };
 
 })
 
-function mostrarAutos(autos){
+
+
+
+function filtrarAuto(marca){
+    const busqueda = autos.filter(a =>a.marca == marca)
+    if (busqueda.length){
+        console.log(busqueda)
+    }else{
+        console.log("No se encontro")
+    }
+    
+
+} 
+
+/* function mostrarAutos(autos){
     autos.forEach(auto => {
         console.log(auto)
         
@@ -56,7 +68,7 @@ function filtrarImg(auto){
         return auto.img === busqueda.img
     }
     return auto
-};
+}; 
 
 function filtrarAuto(){
     let resultado = autos.filter(filtrarMarca).filter(filtrarModelo).filter(filtrarImg);
@@ -64,7 +76,7 @@ function filtrarAuto(){
         mostrarAutos(resultado)
     }
 
-};
+};  */
 
 
 
