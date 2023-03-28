@@ -19,17 +19,28 @@ ford.addEventListener('click', () =>{
 
 })
 
+audi.addEventListener('click', () =>{
+    console.log("Ingresaste en Audi")
 
+    let marca = 'Audi'
 
+    filtrarAuto(marca)
+
+})
+chevrolet.addEventListener('click', () =>{
+    console.log("Ingresaste en Chevrolet")
+    
+    let marca = 'Chevrolet'
+
+    filtrarAuto(marca)
+
+})
 
 function filtrarAuto(marca){
     const busqueda = autos.filter(a =>a.marca === marca)
     if (busqueda.length){
         console.log(busqueda)
-        resultado.innerHTML +=  `
-        <div class = "card" style="width:20px;">
-            <img src="${busqueda.img}" width=100px>
-        </div>`
+        mostrarAuto(busqueda)
     }else{
         console.log("No se encontro")
     }
@@ -37,59 +48,21 @@ function filtrarAuto(marca){
 
 } 
 
-/* function mostrarAutos(autos){
-    autos.forEach(auto => {
-        console.log(auto)
-        
-    });
+function mostrarAuto(busqueda){
+    busqueda.forEach(auto =>{
+        const cardAuto=document.createElement('articulo')
+        cardAuto.setAttribute('id', 'tarjeta-auto')
+        cardAuto.innerHTML +=  `
+            <div class = "card">
+                <img src="${auto.img}" width=150px>
+            </div>`;
+        resultado.appendChild(cardAuto);
+    })
 }
 
-function filtrarMarca(auto){
-    if(busqueda.marca){
-        return auto.marca === busqueda.marca
-    }
-    return auto
-};
-
-function filtrarModelo(auto){
-    if (busqueda.modelo){
-        return auto.modelo === busqueda.modelo
-    }
-    return auto
-};
-
-function filtrarImg(auto){
-    if(busqueda.img){
-        return auto.img === busqueda.img
-    }
-    return auto
-}; 
-
-function filtrarAuto(){
-    let resultado = autos.filter(filtrarMarca).filter(filtrarModelo).filter(filtrarImg);
-    if(resultado.length){
-        mostrarAutos(resultado)
-    }
-
-};  */
 
 
 
-
-audi.addEventListener('click', () =>{
-    console.log("Ingresaste en Audi")
-
-})
-chevrolet.addEventListener('click', () =>{
-    console.log("Ingresaste en Chevrolet")
-
-})
-
-
-
-// document.write(mostrarAutos(autos))
-
-//filtrarAuto()
 
 
 
