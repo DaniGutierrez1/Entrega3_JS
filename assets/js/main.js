@@ -15,15 +15,7 @@ ford.addEventListener('click', () =>{
     let marca = 'Ford'
 
     filtrarAuto(marca)
-    
 
-    for (let busqueda of autos){
-        console.log(busqueda)
-        resultado.innerHTML +=  `
-        <div class = "card" style="width:20px;">
-            <img src="${busqueda.img}" width=100px>
-        </div>`
-    };
 
 })
 
@@ -34,6 +26,10 @@ function filtrarAuto(marca){
     const busqueda = autos.filter(a =>a.marca === marca)
     if (busqueda.length){
         console.log(busqueda)
+        resultado.innerHTML +=  `
+        <div class = "card" style="width:20px;">
+            <img src="${busqueda.img}" width=100px>
+        </div>`
     }else{
         console.log("No se encontro")
     }
