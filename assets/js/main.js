@@ -11,10 +11,9 @@ let resultado = document.querySelector('.resultado')
 
 ford.addEventListener('click', () =>{
     console.log("Ingresaste en Ford")
-    let marca = 'ford'
-
-
     
+    let marca = 'Ford'
+
     filtrarAuto(marca)
     
 
@@ -24,7 +23,7 @@ ford.addEventListener('click', () =>{
         <div class = "card" style="width:20px;">
             <img src="${busqueda.img}" width=100px>
         </div>`
-};
+    };
 
 })
 
@@ -32,7 +31,7 @@ ford.addEventListener('click', () =>{
 
 
 function filtrarAuto(marca){
-    const busqueda = autos.filter(a =>a.marca == marca)
+    const busqueda = autos.filter(a =>a.marca === marca)
     if (busqueda.length){
         console.log(busqueda)
     }else{
