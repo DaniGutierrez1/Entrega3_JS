@@ -54,7 +54,10 @@ function mostrarAuto(busqueda){
         cardAuto.setAttribute('id', 'tarjeta-auto')
         cardAuto.innerHTML +=  `
             <div class = "card">
+                <h4 class="card__titulo"> ${auto.modelo}</h4>
                 <img src="${auto.img}" width=150px>
+                <p class="card__texto">Valor aproximado ${auto.valor}</p>
+                
             </div>`;
         resultado.appendChild(cardAuto);
     })
