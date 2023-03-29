@@ -57,11 +57,19 @@ function mostrarAuto(busqueda){
                 <h4 class="card__titulo"> ${auto.modelo}</h4>
                 <img src="${auto.img}" width=150px>
                 <p class="card__texto">Valor aproximado ${auto.valor}</p>
+                <p class="card__texto__st">Seguro total ${auto.valor * 0.014 + auto.valor*0.011 + 8000}</p>
+                <button id='${auto.valor}' class="btn__cotizar__total">Agregar seguro total</button>
+                <p class="card__texto__sb">Seguro base ${auto.valor * 0.014 + auto.valor*0.0085 + 8000}</p>
+                <button id='${auto.valor}' 
+                class="btn__cotizar__base">Agregar seguro base</button>
                 
             </div>`;
         resultado.appendChild(cardAuto);
     })
+
+
 }
+
 
 
 
