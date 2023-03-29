@@ -2,7 +2,12 @@
     margin: 0;
     padding: 0;
 }
-
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin: 20px;
+}
 body{
     background-color: blueviolet;
 }
@@ -24,3 +29,5 @@ ul li{
     margin: 24px;
     padding: 3px;
 }
+
+
